@@ -23,15 +23,14 @@ This implementation is based on the original code for Stanford CS144 lab3 (https
 
 ## TODO
 
-Adam Christopher Cole
-UID: 004912373
+Adam Cole
 
 This project had us implement a router that communicated along a mininet Network.
 
 Making this router, I modified arp-cache.cpp, routing-table.cpp, and simple-router.cpp.  I noted the
 modifications below.
 
-simple-router.cpp:
+##simple-router.cpp:
     - includes the main functionality of the router, including the logic and creation of packet flow.  Code
     in this file was written under handlePacket().  We handled arp requests by replying with the interface
     MAC address in order for the remote client to find the router.  We handled arp replies by updating the
@@ -40,16 +39,16 @@ simple-router.cpp:
     by either being forwarded to the sender using the ARP cache, or pinged if the IP packet was meant for
     the router interface and the correct ICMP echo was replied.
 
-arp-cache.cpp:
+##arp-cache.cpp:
     - iterates through the ARP Cache and the queued requests, removing cache entries that have not been
     accessed within a certain time frame.  Requests were removed from a queue if they had been sent more
     than 5 times.
 
-forwarding-table.cpp:
+##forwarding-table.cpp:
     - the routing table was implemented by using the longest prefix matching algorithm.
 
 
-Roadblocks in this Project:
+##Roadblocks in this Project:
     - this project was very hard.  Debugging was easy once I got the hang of it, but at the beginning I
     didn't really know where to start.  The given functions were very helpful, and Piazza helped me 
     a lot too.  Most of my debugging was using print statements (either with the given functions or
